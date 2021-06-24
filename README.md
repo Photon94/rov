@@ -16,3 +16,8 @@
 "position" и используются узлом "mission executor" в месте с данными из топика "mission_obj"
 для построения пути, эти данные публикуются в топик "path" и используется узлом "actuators"
 для управления движителями и манипулятором
+
+
+# Полезные ссылки:
+* [SLAM FOR AUTOMATED UNMANNED GROUND VEHICLE WITH ROS](https://www.researchgate.net/publication/326347530_SLAM_FOR_AUTOMATED_UNMANNED_GROUND_VEHICLE_WITH_ROS)
+* [SPARUS II software](https://cirs.udg.edu/wp-content/uploads/2014/05/SPARUS_II_software.pdf)
