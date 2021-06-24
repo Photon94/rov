@@ -1,0 +1,53 @@
+@startuml
+'up to down direction
+
+[video node]
+[Imu node]
+[Chip log node]
+[image processing]
+[hydrophone node]
+
+[mission object detection]
+[env object detection]
+[slam]
+
+[mission executor]
+[actuators]
+
+(/video)
+(/speed)
+(/imu_data)
+(/monochrome_sd)
+(/color)
+(/env_obj)
+(/mission_obj)
+(/position)
+(/sonar)
+(/path)
+
+[hydrophone node] --> (/sonar)
+[Imu node] --> (/imu_data)
+[Chip log node] --> (/speed)
+[video node] --> (/video): 60Hz
+(/video) --> [image processing]
+[image processing] -->(/monochrome_sd): 60Hz
+[image processing] --> (/color) : 10Hz
+
+(/monochrome_sd) --> [env object detection]
+(/color) --> [mission object detection]
+
+[env object detection] --> (/env_obj)
+
+(/imu_data) --> [slam]
+(/env_obj) --> [slam]
+(/speed) --> [slam]
+[slam] --> [/position]
+[mission object detection] --> (/mission_obj)
+
+(/mission_obj) --> [mission executor]
+(/position) --> [mission executor]
+(/sonar) --> [mission executor]
+[mission executor] --> (/path)
+(/path) --> [actuators]
+
+@enduml
